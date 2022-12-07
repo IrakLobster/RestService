@@ -1,6 +1,5 @@
 package org.ibs.service.domain.entity;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.*;
 
@@ -20,16 +19,15 @@ public class Employee {
     @Column(name = "id", nullable = false)
     private Long id;
 
-    @Column(name = "first_name", nullable = false)
+    @Column(name = "first_name")
     private String firstName;
 
-    @Column(name = "last_name",nullable = false)
+    @Column(name = "last_name")
     private String lastName;
 
     @Column(name = "birthday", nullable = false)
     private LocalDate birthday;
 
-    
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "departament_id")
     private Departament departament;
@@ -37,14 +35,14 @@ public class Employee {
     @Column(name = "month_salary")
     private Integer monthSalary;
 
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "boss_id")
+    private Employee boss;
+
     @ManyToMany(cascade = {CascadeType.MERGE, CascadeType.MERGE})
     @JoinTable (name = "employee_course",
             joinColumns = @JoinColumn(name = "employee_id"),
             inverseJoinColumns = @JoinColumn(name = "course_id"))
     private List<Course> course;
-
-    @Column(name = "boss_id")
-    private Long boss_id;
-
 
 }

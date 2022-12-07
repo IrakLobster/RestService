@@ -1,9 +1,9 @@
 package org.ibs.service.config;
 
 import lombok.extern.slf4j.Slf4j;
-import org.ibs.service.domain.entity.Employee;
 import org.ibs.service.bussines.GreetingsService;
 import org.ibs.service.bussines.GreetingsServiceImpl;
+import org.ibs.service.domain.entity.Employee;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
@@ -18,6 +18,6 @@ public class GreetingsServiceConfig {
 
     @Bean
     Employee makeDefEmployee(){
-        return new Employee(null, "Славка", null, null, null, null, null);
+        return new Employee(null, "Славка", null, null, null, null, null, null);
     }
 }

@@ -17,8 +17,7 @@ public class EmployeeController {
     private EmployeeRepository repository;
 
     @GetMapping
-    Iterable<Employee> getAll(){
-        return repository.findAll();
+    Iterable<Employee> getAll(){return repository.findAll();
     }
 
     //@ResponseStatus(HttpStatus.CREATED)
